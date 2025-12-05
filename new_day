@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+D=$(printf '%02d' "$1")
+d=$((10#$1))
+cp -r ./template/ "./days/day$D"
+sed -i '' "s|day__|day$D|" "./days/day$D/Cargo.toml"
+sed -i '' "s|let day = _;|let day = $d;|" "./days/day$D/src/main.rs"
