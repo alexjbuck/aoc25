@@ -23,6 +23,7 @@ codegen-units = 8
 lto = true
 codegen-units = 1
 panic = "abort"
+strip = true
 
 [profile.binsize]
 inherits = "release"
