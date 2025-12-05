@@ -2,6 +2,9 @@ use std::path::PathBuf;
 
 use thiserror::Error;
 
+// Enforce compiler knowledge that we are on at least 32 bit machine
+const _: () = assert!(usize::BITS >= 32, "usize must be at least 32 bits");
+
 const BASE_URI: &str = "https://adventofcode.com";
 const CACHE_LOCATION: &str = "./.input";
 
