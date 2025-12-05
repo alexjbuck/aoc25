@@ -1,0 +1,15 @@
+[package]
+name = "libaoc"
+edition.workspace = true
+version.workspace = true
+authors.workspace = true
+description.workspace = true
+documentation.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+dotenv = "0.15.0"
+thiserror = "2.0.17"
+ureq = "3.1.4"
