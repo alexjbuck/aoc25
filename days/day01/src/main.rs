@@ -85,14 +85,11 @@ fn part_2(input: &str) -> usize {
     input
         .lines()
         .map(parse_line)
-        .inspect(|r| println!("Rotating {r}"))
         .scan(ZeroClickingDial::default(), |dial, rot| {
             *dial = *dial + rot;
             Some(*dial)
         })
-        .inspect(|d| println!("{d:?}"))
         .map(|d| d.clicks)
-        .inspect(|c| println!("count {c}"))
         .sum::<i32>()
         .try_into()
         .expect("Expected positive value")
