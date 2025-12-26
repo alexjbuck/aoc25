@@ -11,9 +11,11 @@ edition = "2024"
 
 [workspace.dependencies]
 libaoc = { path = "days/libaoc" }
+criterion = "0.8.1"
+indoc = "2.0.7"
 
 [workspace.lints.clippy]
-pedantic = "warn"
+pedantic = "allow"
 
 [profile.dev]
 debug = 0
@@ -23,7 +25,7 @@ codegen-units = 8
 lto = true
 codegen-units = 1
 panic = "abort"
-strip = true
+strip = "none"
 
 [profile.binsize]
 inherits = "release"
