@@ -9,6 +9,11 @@ documentation.workspace = true
 [dependencies]
 itertools = "0.14.0"
 libaoc.workspace = true
+criterion.workspace = true
 
 [lints]
 workspace = true
+
+[[bench]]
+name = "bench"
+harness = false

@@ -110,6 +110,15 @@ fn part_from_args() -> Part {
 }
 
 /// # Panics
+/// If SESSION env var is not set.
+#[must_use]
+pub fn load_input(year: u16, day: u8) -> String {
+    dotenv::dotenv().ok();
+    let session = std::env::var("SESSION").expect("SESSION env var not defined.");
+    get_input(year, day, &session).expect("Unable to load input")
+}
+
+/// # Panics
 /// This function panics if the input cannot be loaded
 pub fn evaluate<F1: for<'a> Fn(&'a str) -> usize, F2: for<'a> Fn(&'a str) -> usize>(
     f1: F1,
@@ -117,10 +126,8 @@ pub fn evaluate<F1: for<'a> Fn(&'a str) -> usize, F2: for<'a> Fn(&'a str) -> usi
     year: u16,
     day: u8,
 ) {
-    dotenv::dotenv().ok();
-    let session = std::env::var("SESSION").expect("SESSION env var not defined.");
+    let input = load_input(year, day);
     let part = part_from_args();
-    let input = get_input(year, day, &session).expect("Unable to load input");
     if part == Part::One || part == Part::Both {
         println!("Part One: {}", f1(&input));
     }

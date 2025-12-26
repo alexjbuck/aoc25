@@ -4,3 +4,6 @@ d=$((10#$1))
 cp -r ./template/ "./days/day$D"
 sed -i '' "s|day__|day$D|" "./days/day$D/Cargo.toml"
 sed -i '' "s|let day = _;|let day = $d;|" "./days/day$D/src/main.rs"
+sed -i '' "s|use day0_|use day0$d|" "./days/day$D/src/main.rs"
+sed -i '' "s|let day = _;|let day = $d;|" "./days/day$D/benches/bench.rs"
+sed -i '' "s|use day0_|use day0$d|" "./days/day$D/benches/bench.rs"
